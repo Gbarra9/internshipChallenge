@@ -1,0 +1,28 @@
+{
+  "name": "internshipchallenge",
+  "version": "1.0.0",
+  "description": "NCI DECG Challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js",
+    "dev": "npx nodemon src/app.js -e js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gbarra9/internshipChallenge.git"
+  },
+  "author": "Gene Barra",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gbarra9/internshipChallenge/issues"
+  },
+  "homepage": "https://github.com/Gbarra9/internshipChallenge#readme",
+  "dependencies": {
+    "dotenv": "^9.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
