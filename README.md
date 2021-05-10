@@ -20,6 +20,8 @@ cd public
 live-server
 ```
 
+<hr/>
+
 Here's a data analysis challenge for you that is similar to the stuff we do at DCEG. Like most problems in data science, there is no single solution, and the effectiveness of yours will largely depend on your understanding of the data. There is no time limit, but it shouldn't take you more than 4-5 hrs to design & implement your solution.
 
 ## Problem Statement
