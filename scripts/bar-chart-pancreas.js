@@ -18,6 +18,10 @@ url: https://health.data.ny.gov/resource/gnzp-ekau.json?$where=UPPER(ccs_diagnos
 
 const labels = [];
 
+const pancreasCanvas = document
+  .getElementById('bar-chart-pancreas')
+  .getContext('2d');
+
 const data = {
   labels: labels,
   datasets: [
@@ -54,8 +58,7 @@ const config = {
     plugins: {
       title: {
         display: true,
-        text:
-          'Frequency of Black / African American Patients with Cancer of Pancreas',
+        text: 'Frequency of Black / African American Patients with Cancer of Pancreas',
         font: {
           size: 18,
           lineHeight: 1.1,
@@ -126,7 +129,7 @@ const config = {
     Target element in HTML with id
     Create Chart with inputs
      */
-    await new Chart(document.getElementById('bar-chart-pancreas'), config);
+    await new Chart(pancreasCanvas, config);
   } catch (err) {
     console.log(err);
   }
