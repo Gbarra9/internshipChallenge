@@ -4,9 +4,7 @@
   "description": "NCI DECG Challenge",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node src/app.js",
-    "dev": "npx nodemon src/app.js -e js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -18,11 +16,7 @@
     "url": "https://github.com/Gbarra9/internshipChallenge/issues"
   },
   "homepage": "https://github.com/Gbarra9/internshipChallenge#readme",
-  "dependencies": {
-    "dotenv": "^9.0.0",
-    "express": "^4.17.1"
-  },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "live-server": "^1.2.1"
   }
 }
