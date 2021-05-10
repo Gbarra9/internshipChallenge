@@ -11,6 +11,7 @@ patient_disposition=Expired
 orderBy=age_group
 limit 1000
 
+url: https://health.data.ny.gov/resource/gnzp-ekau.json?$where=UPPER(ccs_diagnosis_description)like%20%27%25CANCER_OF_BRONCHUS%25%27&discharge_year=2016&patient_disposition=Expired&race=White&$order=age_group&$limit=1000&$$app_token=rLzurqxb20r44o3brEQHib86b
 */
 
 const labelsBronchus = [];
@@ -101,20 +102,20 @@ Create cancerBronchusData an Immediately Invoked Function Expression  (IIFE)
       `https://health.data.ny.gov/resource/gnzp-ekau.json?$where=UPPER(ccs_diagnosis_description)like%20%27%25CANCER_OF_BRONCHUS%25%27&discharge_year=2016&patient_disposition=Expired&race=White&$order=age_group&$limit=1000&$$app_token=rLzurqxb20r44o3brEQHib86b`
     );
     let dataParsed = await response.json();
-    console.log(dataParsed);
 
     /* 
     Create a new array based on different age groups from  dataset
+
     Array of Age Groups --> 
     [ "18 to 29", "30 to 49", "50 to 69", "70 or Older" ]
     */
-    let distinctAgeGroup = await [
+    let distinctAgeGroup = [
       ...new Set(dataParsed.map((item) => item.age_group)),
     ];
 
     /* Populate items from distinctAgeGroup to labels array */
     for (let i = 0; i < distinctAgeGroup.length; i++) {
-      await labelsBronchus.push(distinctAgeGroup[i]);
+      labelsBronchus.push(distinctAgeGroup[i]);
     }
     await cancerBronchusDataGender('M', distinctAgeGroup, 0);
     await cancerBronchusDataGender('F', distinctAgeGroup, 1);
@@ -143,7 +144,7 @@ async function cancerBronchusDataGender(gender, distinctAgeGroup, dataSetNum) {
     */
 
     for (let i = 0; i < distinctAgeGroup.length; i++) {
-      await dataBronchusChart.datasets[dataSetNum].data.push(
+      dataBronchusChart.datasets[dataSetNum].data.push(
         dataParsedGender.filter(
           (item) => item.age_group === distinctAgeGroup[i]
         ).length

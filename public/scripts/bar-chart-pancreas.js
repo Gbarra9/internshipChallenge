@@ -12,6 +12,8 @@ race (Black/African American)
 order by age group
 discharge year 2016
 limit 1000 
+
+url: https://health.data.ny.gov/resource/gnzp-ekau.json?$where=UPPER(ccs_diagnosis_description)like%20%27%25CANCER%20OF%20PANCREAS%25%27&race=Black/African%20American&$order=age_group%20ASC&$limit=1000&discharge_year=2016&$$app_token=rLzurqxb20r44o3brEQHib86b
 */
 
 const labels = [];
@@ -102,13 +104,13 @@ const config = {
     Array of Age Groups --> 
     [ "18 to 29", "30 to 49", "50 to 69", "70 or Older" ]
     */
-    let distinctAgeGroup = await [
+    let distinctAgeGroup = [
       ...new Set(dataParsed.map((item) => item.age_group)),
     ];
 
     /* Populate items from distinctAgeGroup to labels array */
     for (let i = 0; i < distinctAgeGroup.length; i++) {
-      await labels.push(distinctAgeGroup[i]);
+      labels.push(distinctAgeGroup[i]);
     }
 
     /* 
@@ -142,7 +144,7 @@ async function cancerPancreasDataGender(gender, distinctAgeGroup, dataSetNum) {
     */
 
     for (let i = 0; i < distinctAgeGroup.length; i++) {
-      await data.datasets[dataSetNum].data.push(
+      data.datasets[dataSetNum].data.push(
         dataParsedGender.filter(
           (item) => item.age_group === distinctAgeGroup[i]
         ).length
