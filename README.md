@@ -6,7 +6,7 @@
 
 https://www.npmjs.com/get-npm
 
-### 2. Change to root directory of the project folder and run the following command in the terminal
+### 2. Change to root directory of the project folder and run the following commands in the terminal
 
 ```
 npm install
@@ -15,6 +15,8 @@ npm install
 ### 3. After Installing dependencies run the following command in the terminal
 
 ```
+cd public
+
 live-server
 ```
 
